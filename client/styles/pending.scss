@@ -1,0 +1,14 @@
+.pending-container{
+    border: 1px solid red;
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    height: 75%;
+    max-height: auto;
+    align-self: center;
+    justify-content: space-between;
+
+    h1{
+        align-self: center;
+    }
+}

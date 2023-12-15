@@ -1,0 +1,13 @@
+.completed-container{
+    border: 1px solid violet;
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    height: 75%;
+    align-self: center;
+    justify-content: space-between;
+
+    h1{
+        align-self: center;
+    }
+}

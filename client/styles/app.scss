@@ -1,0 +1,40 @@
+@import 'completed.scss';
+@import 'pending.scss';
+@import 'inprogress.scss';
+
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-size: 20px;
+}
+
+.main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.app{
+    display: flex;
+    justify-content: space-around;
+    height: 80vh;
+    width: 100%;
+}
+
+.add-task{
+    border: 1px solid darkcyan;
+    background: lightblue;
+    padding: 15px;
+    height: auto;
+    width: auto;
+    border-radius: 10px;
+    &:hover{
+        cursor: pointer;
+    }
+}
