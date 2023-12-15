@@ -3,6 +3,7 @@ import '../../styles/pending.scss';
 import PendingContainer from './PendingContainer';
 
 const Pending = () => {
+
   return (
     <>
       <div className="pending-container">

@@ -1,0 +1,30 @@
+.not-important{
+    color: green;
+}
+
+.important{
+    color: mediumvioletred;
+}
+
+.urgent{
+    color: darkred;
+}
+
+.task{
+    border: 1px solid black;
+    width: 95%;
+    align-self: center;
+    margin: 10px 0 
+}
+
+.pending{
+    background-color: lightgray;
+}
+
+.in-progress{
+    background-color: lightblue;
+}
+
+.completed{
+    background-color: aquamarine;
+}
