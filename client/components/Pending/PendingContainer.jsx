@@ -10,6 +10,18 @@ const PendingContainer = () => {
     getPending();
   }, []);
 
+  const handleOnDrop = (e) => {
+    e.preventDefault();
+    const data = JSON.parse(e.dataTransfer.getData('text/plain'));
+    const background = document.querySelector('.task');
+    background.style.backgroundColor = 'black';
+    console.log(data);
+  };
+
+  const handleOnDragOver = (e) => {
+    e.preventDefault();
+  };
+
   const getPending = (e) => {
     fetch('http://localhost:3000/task', {
       method: 'GET',
@@ -21,9 +33,18 @@ const PendingContainer = () => {
         return res.json();
       })
       .then((data) => {
-        for (let i = 0; i < data.length; i++){
-          if (data[i].status === 'pending'){
-            pendingTasks.push(<Task name={data[i].description} priority={data[i].priority} notes={data[i].notes} status={data[i].status}/>);
+        for (let i = 0; i < data.length; i++) {
+          if (data[i].status === 'pending') {
+            pendingTasks.push(
+              <Task
+                onDrop={(e) => handleOnDrop(e)}
+                onDragOver={(e) => handleOnDragOver(e)}
+                name={data[i].description}
+                priority={data[i].priority}
+                notes={data[i].notes}
+                status={data[i].status}
+              />
+            );
           }
         }
         setPending(pendingTasks);
@@ -32,9 +53,7 @@ const PendingContainer = () => {
 
   return (
     <>
-      <div className="task-container">
-        {pending}
-      </div>
+      <div className="task-container">{pending}</div>
     </>
   );
 };

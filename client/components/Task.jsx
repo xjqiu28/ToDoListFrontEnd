@@ -4,6 +4,7 @@ import '../styles/task.scss';
 const Task = (props) => {
   const { name, priority, notes, status } = props;
 
+
   const getStatus = ()=>{
     switch (status) {
         case 'pending':
