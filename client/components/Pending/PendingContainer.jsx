@@ -10,17 +10,6 @@ const PendingContainer = () => {
     getPending();
   }, []);
 
-  const handleOnDrop = (e) => {
-    e.preventDefault();
-    const data = JSON.parse(e.dataTransfer.getData('text/plain'));
-    const background = document.querySelector('.task');
-    background.style.backgroundColor = 'black';
-    console.log(data);
-  };
-
-  const handleOnDragOver = (e) => {
-    e.preventDefault();
-  };
 
   const getPending = (e) => {
     fetch('http://localhost:3000/task', {
