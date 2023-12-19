@@ -3,6 +3,7 @@ import '../../styles/completed.scss';
 import CompletedContainer from './CompletedContainer';
 
 const Completed = () => {
+  
   return (
     <>
       <div className="completed-container">

@@ -9,6 +9,26 @@ const PendingContainer = () => {
     // Fetch data when the component mounts
     getPending();
   }, []);
+  
+  const drop = e => {
+    e.preventDefault();
+    console.log(e.target);
+    const task_name = e.dataTransfer.getData('task-name');
+
+    console.log(`task status in drop:${task_name}`);
+
+    const task = document.querySelector(`.${task_name}`);
+
+    console.log('Task:', task);
+    
+
+    e.target.appendChild(task);
+
+  }
+
+  const dragOver = e =>{
+    e.preventDefault();
+  }
 
 
   const getPending = (e) => {
@@ -26,8 +46,6 @@ const PendingContainer = () => {
           if (data[i].status === 'pending') {
             pendingTasks.push(
               <Task
-                onDrop={(e) => handleOnDrop(e)}
-                onDragOver={(e) => handleOnDragOver(e)}
                 name={data[i].description}
                 priority={data[i].priority}
                 notes={data[i].notes}
@@ -42,7 +60,7 @@ const PendingContainer = () => {
 
   return (
     <>
-      <div className="task-container">{pending}</div>
+      <div className="task-container" onDrop={drop} onDragOver={dragOver}>{pending}</div>
     </>
   );
 };

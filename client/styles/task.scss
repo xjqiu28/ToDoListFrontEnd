@@ -14,7 +14,11 @@
     border: 1px solid black;
     width: 95%;
     align-self: center;
-    margin: 10px 0 
+    margin: 10px 0;
+    &:hover{
+        cursor: pointer;
+    }
+
 }
 
 .pending{
