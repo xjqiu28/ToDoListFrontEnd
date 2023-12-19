@@ -42,7 +42,7 @@ const Task = (props) => {
             : 'urgent'
         }
       >
-        {priority=== 1 ? 'no-important' : priority===2 ? 'important' : 'urgent'}
+        {priority=== 1 ? 'not important' : priority===2 ? 'important' : 'urgent'}
       </p>
       <details>
         {notes}
