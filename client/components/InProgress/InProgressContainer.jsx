@@ -10,6 +10,24 @@ const InProgressContainer = () =>{
       // Fetch data when the component mounts
       getInProgress();
     }, []);
+
+    const drop = e => {
+      e.preventDefault();
+      const task_name = e.dataTransfer.getData('task-name');
+  
+      console.log(`task status in drop:${task_name}`);
+  
+      const task = document.querySelector(`.${task_name}`);
+  
+      console.log('Task:', task);
+  
+      e.target.appendChild(task);
+  
+    }
+  
+    const dragOver = e =>{
+      e.preventDefault();
+    }
   
     const getInProgress = (e) => {
       fetch('http://localhost:3000/task', {
@@ -29,11 +47,14 @@ const InProgressContainer = () =>{
           }
           setInProgress(inProgressTasks);
         });
+
+        console.log(inProgress);
+
     };
   
     return (
       <>
-        <div className="task-container">
+        <div className="task-container" onDrop={drop} onDragOver={dragOver}>
           {inProgress}
         </div>
       </>

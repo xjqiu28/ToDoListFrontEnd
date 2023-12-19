@@ -2,25 +2,25 @@ const data = [
     {
         "description": "Do Homework",
         "status": "pending",
-        "priority": 'not important',
+        "priority": 1,
         "notes": "Do Math Homework"
     },
     {
         "description": "Do Laundry",
         "status": "in progress",
-        "priority": 'important',
+        "priority": 2,
         "notes": "Do Laundry Right Now"
     },
     {
         "description": "Sleep",
         "status": "completed",
-        "priority": "urgent",
+        "priority": 3,
         "notes": "Go Sleep"
     },
     {
         "description": "Go to Event TN",
         "status": "in progress",
-        "priority": "urgent",
+        "priority": 3,
         "notes": "CodeSmith Holiday Party"
     }
 ]

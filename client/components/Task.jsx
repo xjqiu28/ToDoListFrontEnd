@@ -4,6 +4,17 @@ import '../styles/task.scss';
 const Task = (props) => {
   const { name, priority, notes, status } = props;
 
+  const dragStart = e =>{
+    const target = e.target;
+    const task_name = target.getAttribute('class').split(' ')[2].toLowerCase();
+    e.dataTransfer.setData('task-name', task_name);
+    console.log('Drag Start:', task_name);
+  }
+
+  const dragOver = e =>{
+    e.stopPropagation();
+  }
+
 
   const getStatus = ()=>{
     switch (status) {
@@ -20,18 +31,18 @@ const Task = (props) => {
   }
 
   return (
-    <div className={`task ${getStatus()}`} draggable>
+    <div className={`task ${getStatus()} ${name.toLowerCase().split(' ').join('-')}`} draggable onDragStart={dragStart} onDragOver={dragOver}>
       <p>{name}</p>
       <p
         className={
-          priority === 'not important'
+          priority === 1
             ? 'not-important'
-            : priority === 'important'
+            : priority === 2
             ? 'important'
             : 'urgent'
         }
       >
-        {priority}
+        {priority=== 1 ? 'no-important' : priority===2 ? 'important' : 'urgent'}
       </p>
       <details>
         {notes}
