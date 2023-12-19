@@ -12,16 +12,11 @@ const PendingContainer = () => {
   
   const drop = e => {
     e.preventDefault();
-    console.log(e.target);
     const task_name = e.dataTransfer.getData('task-name');
 
-    console.log(`task status in drop:${task_name}`);
-
+    console.log(`task status in drop:${task_name}`)
     const task = document.querySelector(`.${task_name}`);
-
-    console.log('Task:', task);
-    
-
+    task.classList.replace(task.classList[1], "pending");
     e.target.appendChild(task);
 
   }
